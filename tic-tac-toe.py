@@ -5,7 +5,6 @@ while True:
     def clear():
         os.system('cls')
 
-    # board = [x for x in '_'*9]
     board = [x for x in range(1, 10)]
 
     def display_board():
@@ -35,7 +34,10 @@ while True:
                 print("Turn of, x")
             else:
                 print("Turn of, O")
-            pos = int(input('Enter your position (1-9) ')) - 1
+            try:
+                pos = int(input('Enter your position (1-9) ')) - 1
+            except SyntaxError:
+                pass
             clear()
             if (pos + 1) in pos_range:
                 if board[pos] == 'X' or board[pos] == 'O':
